@@ -1,8 +1,6 @@
 "use client"
 import Link from "next/link";
 import { useMonsterContext } from "../context/conextProvider";
-import { useState } from "react";
-import { Monster } from "../types/type";
 
 const GetAllMonsters = () => {
   const { state } = useMonsterContext();
