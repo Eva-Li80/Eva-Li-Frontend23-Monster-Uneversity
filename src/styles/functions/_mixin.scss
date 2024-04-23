@@ -1,0 +1,14 @@
+@mixin displayFlexAll($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+    flex-wrap: wrap;
+}
+
+@mixin displayFlex($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}

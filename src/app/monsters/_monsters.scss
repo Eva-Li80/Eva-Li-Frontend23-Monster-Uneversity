@@ -1,0 +1,47 @@
+.monsters{
+    @include displayFlex(column);
+
+    h1{
+        background-color: $green;
+        font-size: 30px;
+        padding: 10px;
+        margin: 50px;
+    }
+
+    p{
+        font-size: 20px;
+        color: $white;
+        background-color: $black;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+.all{
+   h2{
+       background-color: $gray;
+       font-size: 20px;
+       margin: 20px;
+       padding: 10px;
+   } 
+   h2:hover{
+    background-color: $pink;
+   }
+}
+
+.details{
+    @include displayFlexAll(column);
+    height: 100vh;
+    background-color: $gray;
+
+    h2{
+        font-size: 30px;
+        background-color: $pink;
+        margin-bottom: 50px;
+        padding: 10px;
+    }
+
+    p{
+        font-size: 25px;
+    }
+}

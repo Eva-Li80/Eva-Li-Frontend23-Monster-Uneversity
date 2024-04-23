@@ -1,0 +1,17 @@
+.searchpage{
+    @include displayFlex(column);
+    background-color: $black;
+    height: 100vh;
+}
+
+.monstersearch{
+    @include displayFlex(row);
+    background-color: $pink;
+    width: 600px;
+    height: 400px;
+
+    .search-btn{
+        background-color: $green;
+        padding: 10px;
+    }
+}

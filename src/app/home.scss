@@ -1,0 +1,20 @@
+.title{
+    color: $pink;
+    font-size: 30px;
+    font-weight: bold;
+
+    .goast{
+        font-size: 50px;
+    }
+
+}
+
+
+.link{
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    color: $green;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}

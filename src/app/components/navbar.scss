@@ -1,0 +1,13 @@
+.navbar{
+    @include displayFlexAll(row);
+    background-color: $green;
+    height: 150px;
+
+    .link{
+        font-size: 25px;
+        color: $white;
+        margin: 20px;
+        background-color: $pink;
+        padding: 10px;
+    }
+}

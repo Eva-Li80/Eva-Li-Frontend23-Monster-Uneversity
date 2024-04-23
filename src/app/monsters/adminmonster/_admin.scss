@@ -1,0 +1,52 @@
+.admin{
+    @include displayFlex(row);
+    background-color: $pink;
+
+    .ett{
+        margin: 50px  100px 0 0;
+    }
+    .två{
+        margin: 0 0 200px 100px;
+
+        .uppdatera{
+        background-color: $gray;
+        padding: 20px;
+        }
+
+        label{
+            font-size: 30px;
+        }
+
+        .up-btn{
+            background-color: $green;
+        }
+    }
+   
+
+    .name{
+        font-size: 25px;
+        background-color: $green;
+        margin-top: 50px;
+      
+    }
+
+    .delete{
+        background-color: $green;
+        width: 50px;
+        margin-left: 10px;
+    }
+
+    .delete:hover{
+      color: $pink;
+    }
+
+    .up{
+        margin-left: 10px;
+    }
+
+    .upname{
+        margin: 10px;
+        background-color: $gray;
+        padding: 10px;
+    }
+}
