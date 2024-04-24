@@ -28,5 +28,6 @@ Projektet är för närvarande i utvecklingsfasen och förbättringar och nya fu
 - **Next.js** 
 - **React**
 - **TypeScript**
-- **CSS Modules**
+- **CSS**
+- **scss**
 - **JSON**
