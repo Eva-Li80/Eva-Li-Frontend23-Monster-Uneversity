@@ -13,6 +13,7 @@ const initialMonsterState: MonsterState = { monsters: data as Monster[] };
 const reducer = (state: MonsterState, action: Action): MonsterState => {
   switch (action.type) {
     case "Add":
+        console.log("Adding monster:", action.payload);
       return {
         ...state,
         monsters: [...state.monsters, action.payload as Monster],
@@ -28,13 +29,9 @@ const reducer = (state: MonsterState, action: Action): MonsterState => {
       const updatePayload = action.payload as Monster;
       return {
         ...state,
-        monsters: state.monsters.map((i: Monster) => {
-          if (i.id === updatePayload.id) {
-            return action.payload ? updatePayload : i
-          } else {
-            return i;
-          }
-        }),
+        monsters: state.monsters.map((i: Monster) =>
+          i.id === updatePayload.id ? updatePayload : i
+        ),
       };
 
     default:

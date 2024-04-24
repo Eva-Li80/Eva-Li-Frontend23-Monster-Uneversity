@@ -7,23 +7,32 @@ import React, { ChangeEvent, useState } from "react";
 const Admin = () => {
   const { state, dispatch } = useMonsterContext();
   const [selectedMonster, setSelectedMonster] = useState<Monster | null>(null);
+  const [id, setId] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [description, setDescription] = useState("");
+  const [scienceAbilities, setScienceAbilities] = useState([]);
+  const [magicAbilities, setMagicAbilities] = useState([]);
+  const [origin, setOrigin] = useState("");
+  const [numEyes, setNumEyes] = useState(0);
+  const [numArms, setNumArms] = useState(0);
+  const [numTenticles, setNumTenticles] = useState(0);
 
-  const addMonster = () => {
-    setTimeout(() => {
+  const addMonster = (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
       const newMonster = {
-        id: "10",
-        first_name: "Wisp",
-        last_name: "Shadowglimmer",
-        description:
-          "A mysterious monster with wispy tendrils and shadowy abilities.",
+        id: id,
+        first_name: firstName,
+        last_name: lastName,
+        description: description,
         abilities: {
-          science: ["Dark matter research", "Stealth technology"],
-          magic: ["Shadow manipulation", "Illusions"],
+          science: scienceAbilities,
+          magic: magicAbilities,
         },
-        origin: "Shadewood",
-        num_eyes: 2,
-        num_arms: 0,
-        num_tentacles: 6,
+        origin: origin,
+        num_eyes: numEyes,
+        num_arms: numArms,
+        num_tentacles: numTenticles,
       };
 
       const isDuplicate = state.monsters.some(
@@ -36,7 +45,7 @@ const Admin = () => {
       }
 
       dispatch({ type: "Add", payload: newMonster });
-    }, 500);
+    
   };
 
   const deleteMonster = (id: string) => {
@@ -44,7 +53,6 @@ const Admin = () => {
       dispatch({ type: "Remove", payload: id });
     }, 500);
   };
-
 
   const handleUpdate = () => {
     if (selectedMonster) {
@@ -56,7 +64,7 @@ const Admin = () => {
     <div className="admin">
       <div className="ett">
         {state.monsters.map((monster) => (
-          <div>
+          <div key={monster.id}>
             <h2 className="name">
               {monster.first_name} {monster.last_name}
               <button
@@ -76,44 +84,129 @@ const Admin = () => {
         ))}
       </div>
       <div className="två">
-        <button onClick={addMonster}>Add monster</button>
-        <div className="uppdatera">
-
-        {selectedMonster && (
-          <div className="update">
-            <div>
-              <label>
-                Förnamn:
-                <input
-                  type="text"
-                  value={selectedMonster.first_name}
-                  onChange={(e) =>
-                    setSelectedMonster({
-                      ...selectedMonster,
-                      first_name: e.target.value || "",
-                    })
-                  }
-                  />
-              </label>
-            </div>
-            <div>
-              <label>
-                Efternamn:
-                <input
-                  type="text"
-                  value={selectedMonster.last_name}
-                  onChange={(e) =>
-                    setSelectedMonster({
-                      ...selectedMonster,
-                      last_name: e.target.value,
-                    })
-                  }
-                  />
-              </label>
-            </div>
-            <button className="up-btn" onClick={handleUpdate}>Uppdatera Monster</button>
+        <form onSubmit={addMonster}>
+          <div>
+            <label>
+              ID:
+              <input
+                type="text"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+              />
+            </label>
           </div>
-        )}
+          <div>
+            <label>
+              Förnamn:
+              <input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Efternamn:
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Beskrivning:
+              <input
+                type="text"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </label>
+          </div>
+          {/* Lägg till fler input-fält för abilities här, liknande ovan */}
+          <div>
+            <label>
+              Ursprung:
+              <input
+                type="text"
+                value={origin}
+                onChange={(e) => setOrigin(e.target.value)}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Antal ögon:
+              <input
+                type="number"
+                value={numEyes}
+                onChange={(e) => setNumEyes(Number(e.target.value))}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Antal armar:
+              <input
+                type="number"
+                value={numArms}
+                onChange={(e) => setNumArms(Number(e.target.value))}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Antal tentakler:
+              <input
+                type="number"
+                value={numTenticles}
+                onChange={(e) => setNumTenticles(Number(e.target.value))}
+              />
+            </label>
+          </div>
+          <button type="submit">Lägg till Monster</button>
+        </form>
+
+        <div className="uppdatera">
+          {selectedMonster && (
+            <div className="update">
+              <div>
+                <label>
+                  Förnamn:
+                  <input
+                    type="text"
+                    value={selectedMonster.first_name}
+                    onChange={(e) =>
+                      setSelectedMonster({
+                        ...selectedMonster,
+                        first_name: e.target.value,
+                      })
+                    }
+                  />
+                </label>
+              </div>
+              <div>
+                <label>
+                  Efternamn:
+                  <input
+                    type="text"
+                    value={selectedMonster.last_name}
+                    onChange={(e) =>
+                      setSelectedMonster({
+                        ...selectedMonster,
+                        last_name: e.target.value,
+                      })
+                    }
+                  />
+                </label>
+              </div>
+              <button className="up-btn" onClick={handleUpdate}>
+                Uppdatera Monster
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -34,16 +34,15 @@ const MonsterSearch = ({}) => {
           style={{ marginLeft: 10 }}
           onClick={() => handleSearchClick(searchName)}
         >
-          Search by monster name
+          sök på namnet
         </button>
-        {foundMonster && (
+        {foundMonster ? (
           <div>
-            <p>Monster found: {foundMonster}</p>
+            <p>Monster {foundMonster} hittades</p>
           </div>
-        )}
-        {foundMonster === null && (
+        ): (
           <div>
-            <p>No monster found with that name.</p>
+            <p>Inget monster hittat än.</p>
           </div>
         )}
       </div>
