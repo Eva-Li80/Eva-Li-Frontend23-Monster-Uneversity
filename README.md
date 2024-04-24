@@ -16,7 +16,6 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-#Monster Uneversity
+# Monster University
 
-**![Monsters]** e.g!
-![Reference Image](/next/src/assets/Cute-Monster-PNG-Free-Image.png)
+![Reference Image](src/assets/Cute-Monster-PNG-Free-Image.png)
