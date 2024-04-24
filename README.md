@@ -33,7 +33,7 @@ Projektet är för närvarande i utvecklingsfasen och förbättringar och nya fu
 ### npm run dev
 
 ## Bilder på projektet
-[bilder på projketet](/next/src/assets/Skärmbild%202024-04-24%20102424.png)
+[bilder på projketet](src/assets/Skärmbild%202024-04-24%20102747.png)
 
 ## Figma-skiss
 
